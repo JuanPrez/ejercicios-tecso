@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	padding: 20px;
+}
+
+.tabla-completa {
+	width: 100%;
+}
+
+.tabla-personas tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.tabla-personas tr:nth-child(odd) {
+	background-color: #FAFAFA;
+}
+
+.tabla-personas th {
+	background-color: lightblue;
+}
+
+.tabla-personas td, th {
+	padding: 2px;
+}
+
+.centrado {
+	text-align: center;
+}
+
+.ancho-completo {
+	width: 100%;
+}
+.navPane {
+	width: 100%;
+	display: inline-table;
+}
+
+.navegacion {
+	box-shadow: 0px 2px #999;
+	display: table-cell;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	background-color: #FCFCFC;
+	border-radius: 5px;
+	padding: 2px 6px 2px 6px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}

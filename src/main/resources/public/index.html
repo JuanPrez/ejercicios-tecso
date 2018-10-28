@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="ejercicio" ng-controller="controladorBase">
+<head>
+<title>Ejercicios</title>
+<meta charset="UTF-8">
+<!-- Hojas de estilo -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="recursos/main.css">
+</head>
+
+<body>
+	<nav class="navPane">
+		<a class="navegacion" href="#/alumnos">Ingreso de Alumnos</a> 
+		<a class="navegacion" href="#/cursos">Reporte de curso</a> 
+		<a class="navegacion" href="#/inscripcion">Inscripción a materias</a>
+	</nav>
+	<div ng-view id="main"></div>
+
+	<!-- Scripts -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<!-- 	<script src="router.js"></script> -->
+	<script src="main.js"></script>
+	<script src="alumnos/controlador/controladorAlumnos.js"></script>
+	<script src="cursos/controlador/controladorCursos.js"></script>
+	<script src="inscripcion/controlador/controladorInscripcion.js"></script>
+
+</body>
+</html>

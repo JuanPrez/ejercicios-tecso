@@ -1,0 +1,20 @@
+
+<h3>Cursos</h3>
+<table border="1">
+	<tr>
+		<th>Curso</th>
+		<th>Docente</th>
+		<th>Alumnos</th>
+	</tr>
+	<tr ng-repeat="curso in listaCursos | orderBy: 'id'">
+		<td>{{curso.id}} - {{curso.nombre}}</td>
+		<td>{{curso.docente.id}} - {{curso.docente.nombre}}</td>
+		<td>
+			<table border="1">
+				<tr ng-repeat="alumno in curso.alumnos">
+					<td>{{alumno.legajo}} - {{alumno.apellido}}, {{alumno.nombre}}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

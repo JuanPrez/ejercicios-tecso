@@ -1,0 +1,80 @@
+<div class="w3-sidebar w3-bar-block" style="width: 45%; margin: 1%">
+	<h2>Listado de alumnos</h2>
+	<input type="submit" value="Listar alumnos" ng-click="listarAlumnos()">
+	<table class="tabla-personas tabla-completa">
+		<tr>
+			<th>Legajo</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Documento</th>
+			<th>Fecha Nacimiento</th>
+		</tr>
+		<tr ng-repeat="alumno in listaAlumnos | orderBy: 'legajo' "
+			style="cursor: pointer;" ng-click="getAlumno(alumno)">
+			<td class="centrado"
+				style="text-decoration: underline; font-weight: bold;">{{alumno.legajo}}</td>
+			<td>{{alumno.persona.nombre}}</td>
+			<td>{{alumno.persona.apellido}}</td>
+			<td class="centrado">{{alumno.persona.tipodoc}}
+				{{alumno.persona.documento}}</td>
+			<td class="centrado">{{alumno.persona.fechanac}}</td>
+		</tr>
+	</table>
+</div>
+<div style="margin: 1%; margin-left: 49%;">
+	<h3>Datos del alumno</h3>
+	<table border="1" class="tabla-completa">
+		<tr>
+			<td><input type="text" readonly="readonly" style="width: 30px;"
+				value="{{alumnoSeleccionado.id}}" placeholder="id" /> <input
+				type="text" style="width: 90px; display: inline-block;"
+				ng-model="alumnoSeleccionado.legajo" placeholder="legajo" /></td>
+			<td><input type="text" placeholder="apellido"
+				ng-model="alumnoSeleccionado.persona.apellido" /></td>
+			<td><input type="text" placeholder="nombre"
+				ng-model="alumnoSeleccionado.persona.nombre" /></td>
+		</tr>
+		<tr>
+			<td><input type="text" placeholder="tipodoc"
+				ng-model="alumnoSeleccionado.persona.tipodoc" /></td>
+			<td><input type="number" placeholder="documento"
+				ng-model="alumnoSeleccionado.persona.documento" /></td>
+			<td><input type="text" placeholder="Nac (yyyy-MM-dd)"
+				ng-model="alumnoSeleccionado.persona.fechanac" /></td>
+		</tr>
+		<tr>
+			<td colspan="3"><input type="text" placeholder="direccion"
+				class="ancho-completo"
+				ng-model="alumnoSeleccionado.persona.direccion" /></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<ul>
+					<li
+						ng-repeat="carrera in alumnoSeleccionado.carreras | orderBy: 'id'">
+						{{carrera.id}} - {{carrera.nombre}}( {{carrera.fechaInscripcion}})
+						/ Promedio: ({{carrera.promedio}})
+						<ul ng-repeat="curso in carrera.cursos | orderBy: 'id' ">
+							<li>{{curso.id}} - {{curso.nombre}}
+								({{curso.fechaInscripcion}}) ( <span ng-if="curso.nota == null">Cursando</span>
+								<span ng-if="curso.nota != null && curso.nota >= 4">Aprobado</span>
+								<span ng-if="curso.nota != null && curso.nota < 4">Reprobado</span>
+								)
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+		<table border="1" class="tabla-completa">
+			<tr>
+				<td><input type="button" value="Nuevo Alumno"
+					ng-click="nuevoAlumno()" /></td>
+				<td><input type="button" value="Guardar"
+					ng-click="guardarAlumno()" /></td>
+			</tr>
+		</table>
+	</table>
+</div>

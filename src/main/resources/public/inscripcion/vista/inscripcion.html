@@ -1,0 +1,52 @@
+<div class="ancho-completo" style="text-align: center;">
+	<table border="1">
+		<tr>
+			<td><input type="text" placeholder="id" ng-model="busquedaId"></td>
+			<td><input type="button" value="buscar"
+				ng-click="buscarAlumnoPorId()"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<h3>Datos del alumno</h3>
+				<table border="1" class="tabla-completa">
+					<tr>
+						<td><input type="text" readonly="readonly"
+							style="width: 30px;" value="{{alumnoSeleccionado.id}}"
+							placeholder="id" /> <input type="text"
+							style="width: 90px; display: inline-block;" readonly="readonly"
+							ng-model="alumnoSeleccionado.legajo" placeholder="legajo" /></td>
+						<td><input type="text" placeholder="apellido"
+							readonly="readonly"
+							ng-model="alumnoSeleccionado.persona.apellido" /></td>
+						<td><input type="text" placeholder="nombre"
+							readonly="readonly" ng-model="alumnoSeleccionado.persona.nombre" /></td>
+					</tr>
+					<tr>
+						<td><input type="text" placeholder="tipodoc"
+							readonly="readonly" ng-model="alumnoSeleccionado.persona.tipodoc" /></td>
+						<td><input type="number" placeholder="documento"
+							readonly="readonly"
+							ng-model="alumnoSeleccionado.persona.documento" /></td>
+						<td><input type="text" placeholder="Nac (yyyy-MM-dd)"
+							readonly="readonly"
+							ng-model="alumnoSeleccionado.persona.fechanac" /></td>
+					</tr>
+					<tr>
+						<td colspan="3"><input type="text" placeholder="direccion"
+							readonly="readonly" class="ancho-completo"
+							ng-model="alumnoSeleccionado.persona.direccion" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><select ng-model="cursoSeleccionado"
+							ng-options="curso.id as curso.nombre for curso in listaCursos track by curso.id">
+								<!-- 								<option ng-repeat="curso in listaCursos">{{curso.id}} - -->
+								<!-- 									{{curso.nombre}}</option> -->
+						</select></td>
+						<td><input type="button" value="Inscribirse"
+							ng-click="inscribirse()"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
